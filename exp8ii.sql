@@ -13,10 +13,13 @@ CASE
 WHEN shape='square' THEN
 BEGIN
 ar:=s*s;
-dbms_output.Put_line('Area of Square ' || ar); END;
+dbms_output.Put_line('Area of Square ' || ar); 
+END;
 WHEN shape='circle' THEN
 BEGIN
-area :=pi*radius*radius; dbms_output.Put_line('Area of a circle ' || area); END;
+area :=pi*radius*radius; 
+dbms_output.Put_line('Area of a circle ' || area); 
+END;
 WHEN shape='rectangle' THEN
 BEGIN
 a:=l*b;
