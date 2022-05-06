@@ -8,10 +8,12 @@ insert into employees values(006, 'Krishna', 24, 20000, 'fatima nagar');
 select * from employees;
 CREATE TRIGGER print_salary_changes
 BEFORE DELETE OR INSERT OR UPDATE ON employees FOR EACH ROW
-WHEN (new.id > 0) DECLARE
+WHEN (new.id > 0)
+DECLARE
 sal_diff number; 
 BEGIN
-sal_diff := :new.salary - :old.salary; dbms_output.put('Old salary: ' || :old.salary); 
+sal_diff := :new.salary - :old.salary; 
+dbms_output.put('Old salary: ' || :old.salary); 
 dbms_output.put(' New salary: ' || :new.salary); 
 dbms_output.put_line(' Difference ' || sal_diff); 
 END;

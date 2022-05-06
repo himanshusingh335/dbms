@@ -16,7 +16,8 @@ BEGIN
 OPEN c_employees;
 LOOP
 FETCH c_employees into c_id, c_name, c_addr;
-EXIT WHEN c_employees%notfound; dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr); 
+EXIT WHEN c_employees%notfound; 
+dbms_output.put_line(c_id || ' ' || c_name || ' ' || c_addr); 
 END LOOP;
 CLOSE c_employees;
 END;
