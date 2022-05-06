@@ -17,4 +17,6 @@ insert into responsibility values(004, 'managing');
 insert into responsibility values(005, 'clerk');
 insert into responsibility values(006, 'clerk');
 
+select * from responibility;
+
 select id, name, age, salary, address from employees where age between 20 and 23 and id in (select id from responsibility where responsibility='clerk');
