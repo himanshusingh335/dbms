@@ -1,4 +1,4 @@
-create table employees (id number(10) primary key, name varchar(30), age number(3), salary float(10), address varchar(100));
+create table employees (id int(10) NOT NULL, name varchar(30), age int(3), salary float(10), address varchar(100), PRIMARY KEY(id));
 insert into employees values(001, 'Raghav', 19, 21000, 'Viman Nagar');
 insert into employees values(002, 'Ram', 20, 22000, 'Undri');
 insert into employees values(003, 'Raju', 21, 23000, 'MG Road');
@@ -8,7 +8,7 @@ insert into employees values(006, 'Krishna', 24, 20000, 'fatima nagar');
 
 select * from employees;
 
-create table responsibility (id number(10), responsibility varchar(100), foreign key (id) references employees(id));
+create table responsibility (id int(10), responsibility varchar(100), foreign key(id) references employees(id));
 insert into responsibility values(001, 'accounting');
 insert into responsibility values(001, 'managing');
 insert into responsibility values(002, 'clerk');
@@ -17,6 +17,7 @@ insert into responsibility values(004, 'managing');
 insert into responsibility values(005, 'clerk');
 insert into responsibility values(006, 'clerk');
 
-select * from responibility;
+select * from responsibility;
 
-select id, name, age, salary, address from employees where age between 20 and 23 and id in (select id from responsibility where responsibility='clerk');
+select id, name, age, salary, address from employees where age between 20 and 24 and id in (select id from responsibility where responsibility='clerk');
+select employees.id, employees.name, employees.age, employees.salary, responsibility.responsibility from employees join responsibility on employees.id=responsibility.id where age between 20 and 24 and employees.id in (select id from responsibility where responsibility='clerk');
