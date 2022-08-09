@@ -22,3 +22,5 @@ select * from responsibility;
 select id, name, age, salary, address from employees where age between 20 and 24 and id in (select id from responsibility where responsibility='clerk');
 select employees.id, employees.name, employees.age, employees.salary, responsibility.responsibility from employees join responsibility on employees.id=responsibility.id where age between 20 and 24 and employees.id in (select id from responsibility where responsibility='clerk');
 select responsibility.responsibility, avg(employees.salary) from responsibility join employees on responsibility.id=employees.id group by responsibility having avg(salary)>21000 order by avg(salary) desc;
+select responsibility.responsibility, count(employees.salary) from responsibility join employees on responsibility.id=employees.id group by responsibility having avg(salary)>21000 order by avg(salary) desc;
+select responsibility.responsibility, count(employees.salary) from responsibility join employees on responsibility.id=employees.id group by responsibility order by avg(salary) desc;
